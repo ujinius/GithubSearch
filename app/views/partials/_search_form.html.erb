@@ -1,0 +1,6 @@
+
+<%= form_with(url: search_static_index_path, method: :post) do %>
+  <%= label_tag(:query, I18n.t('form.label')) %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag(I18n.t('form.submit')) %>
+<% end %>

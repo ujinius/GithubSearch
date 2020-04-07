@@ -1,0 +1,27 @@
+<% if @repositories.size.zero? %>
+<table>
+  <tr>
+    <td><%= I18n.t('result.not_found') %></td>
+  </tr>
+</table>
+<% else %>
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th><%= I18n.t('result.table_label') %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @repositories.each_with_index do |one, ind| %>
+    <tr>
+      <td><%= ind %></td>
+      <td>
+        <%= link_to one['full_name'], one['html_url'], target: :blank %> (<%= I18n.t('result.last_updated_at') %> <%= Time.parse(one['updated_at']).strftime('%D') %>)<br>
+        <%= one['description'] %><br>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% end %>

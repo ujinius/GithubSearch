@@ -1,0 +1,9 @@
+
+en:
+  form:
+    label: 'Search for:'
+    submit: 'Submit'
+  result:
+    not_found: 'Sorry, but there is no any result by your query. Please, change your request and try again!'
+    table_label: 'Repository details'
+    last_updated_at: 'last updated at'

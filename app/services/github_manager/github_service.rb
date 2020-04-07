@@ -4,6 +4,8 @@ module GithubManager
 
     attr_accessor :connection
 
+    # Preparing 'Excon' connection with default params and headers.
+    #
     def initialize
       @connection = Excon.new(
         service_url,

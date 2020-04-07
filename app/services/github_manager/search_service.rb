@@ -4,6 +4,8 @@ module GithubManager
 
     attr_accessor :query
 
+    # Getting 'query' and preparing connection to the API (hidden in parent class).
+    #
     def initialize(query)
       @query = query
       super()
@@ -15,6 +17,8 @@ module GithubManager
       'search/repositories'
     end
 
+    # Getting a list of repositories which are met query criteria
+    #
     def call
       @connection.get(query: { q: "#{@query} in:name,description" })
     rescue Excon::Error => e

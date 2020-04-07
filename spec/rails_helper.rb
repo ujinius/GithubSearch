@@ -9,9 +9,9 @@ require 'rspec/rails'
 require 'capybara/rails'
 
 VCR.configure do |config|
-  config.cassette_library_dir = "fixtures/vcr_cassettes"
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
-  # config.filter_sensitive_data('<SOME_PLACEHOLDER>') { 'sensitive data' }
+  config.filter_sensitive_data('<USER-AGENT>') { 'Github-Search-Global-App' }
   config.configure_rspec_metadata!
 end
 

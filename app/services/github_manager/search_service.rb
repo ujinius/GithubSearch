@@ -7,7 +7,7 @@ module GithubManager
     # Getting 'query' and preparing connection to the API (hidden in parent class).
     #
     def initialize(query)
-      @query = query
+      self.query = query
       super()
     end
 
@@ -20,7 +20,7 @@ module GithubManager
     # Getting a list of repositories which are met query criteria
     #
     def call
-      @connection.get(query: { q: "#{@query} in:name,description" })
+      connection.get(query: { q: "#{query} in:name,description" })
     rescue Excon::Error => e
       logger.error e.inspect
       false

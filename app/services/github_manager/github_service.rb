@@ -7,7 +7,7 @@ module GithubManager
     # Preparing 'Excon' connection with default params and headers.
     #
     def initialize
-      @connection = Excon.new(
+      self.connection = Excon.new(
         service_url,
         headers: {
           :Accept => 'application/vnd.github.mercy-preview+json',

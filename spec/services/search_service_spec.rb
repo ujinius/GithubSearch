@@ -9,10 +9,14 @@ describe GithubManager::SearchService do
   end
 
   it 'gets repositories by query', :vcr do
-    api_response = GithubManager::SearchService.call('rails')
-    body = JSON.parse api_response.body
+    items = GithubManager::SearchService.call('rails')
 
-    expect(body).to have_key('items')
-    expect(body).to have_key('total_count')
+    expect(items.size).to be > 0
+  end
+
+  it "doesn't get repositories by wrong query", :vcr do
+    items = GithubManager::SearchService.call('notexistrailsrepoositoryforsoomereasonatall')
+
+    expect(items.size).to be == 0
   end
 end

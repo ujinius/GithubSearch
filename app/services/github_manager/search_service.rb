@@ -26,7 +26,7 @@ module GithubManager
 
     rescue Excon::Error => e
       logger.error e.inspect
-      false
+      []
     end
 
   end

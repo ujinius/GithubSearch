@@ -9,9 +9,7 @@ class StaticController < ApplicationController
   # (POST method)
   #
   def search
-    api_response = GithubManager::SearchService.call(query_params[:query])
-    body = JSON.parse api_response.body
-    @repositories = body['items']
+    @repositories = GithubManager::SearchService.call(query_params[:query])
 
     respond_to do |format|
       format.js

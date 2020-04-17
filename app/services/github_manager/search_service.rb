@@ -20,7 +20,10 @@ module GithubManager
     # Getting a list of repositories which are met query criteria
     #
     def call
-      connection.get(query: { q: "#{query} in:name,description" })
+      api_response = connection.get(query: { q: "#{query} in:name,description" })
+      body = JSON.parse api_response.body
+      body['items'] || []
+
     rescue Excon::Error => e
       logger.error e.inspect
       false
